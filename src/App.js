@@ -1,12 +1,11 @@
 import "./App.css";
 import Row from "./components/row";
+import Table from "./components/table";
 
 function App() {
   return (
     <div className="App">
-      "hola mundo n"
-      <Row></Row>
-      <Row></Row>
+      <Table></Table>
     </div>
   );
 }
