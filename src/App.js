@@ -1,13 +1,9 @@
 import "./App.css";
-import Row from "./components/row";
 import Table from "./components/table";
+import Connect4 from "./pages/connect4";
 
 function App() {
-  return (
-    <div className="App">
-      <Table></Table>
-    </div>
-  );
+  return <Connect4></Connect4>;
 }
 
 export default App;

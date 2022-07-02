@@ -1,14 +1,13 @@
+import "./table.css";
 import Row from "./row";
 import { cellState } from "./state";
 
-export default function Table() {
-  const player1 = cellState.player.player1;
-  const player2 = cellState.player.player2;
-  const empty = cellState.empty;
+export default function Table({ table }) {
   return (
     <div className="table">
-      <Row cells={[player1, player2, empty]}></Row>
-      <Row cells={[player1, player2, player1]}></Row>
+      {table.map((row, index) => (
+        <Row key={index} cells={row}></Row>
+      ))}
     </div>
   );
 }

@@ -3,13 +3,17 @@ import Token from "./token";
 import { player } from "./player";
 import { cellState } from "./state";
 
-export default function Cell({ state, column }) {
-  if (state === cellState.empty) return <div className="cell"></div>;
-
-  const color = state === player.player1 ? "red" : "blue";
+export default function Cell({ state, onClick }) {
   return (
-    <div className="cell">
-      <Token color={color}></Token>
+    <div className="cell" onClick={onClick}>
+      {isEmpty(state) ? (
+        <></>
+      ) : (
+        <Token color={isPlayer1(state) ? "red" : "blue"}></Token>
+      )}
     </div>
   );
 }
+
+const isEmpty = (state) => state === cellState.empty;
+const isPlayer1 = (state) => state === cellState.player.player1;
