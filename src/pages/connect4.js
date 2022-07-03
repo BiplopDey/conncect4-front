@@ -7,13 +7,13 @@ import axios from "axios";
 const player1 = cellState.player.player1;
 const player2 = cellState.player.player2;
 const empty = cellState.empty;
-const herokuapp = "https://connect4-api.herokuapp.com";
+const herokuapp = "https://minimax-connect4-biplop.herokuapp.com";
 const localapp = "http://localhost:8080";
-const url = localapp + "/connect4/placeToken";
+const url = herokuapp + "/connect4/placeToken";
 
 export default function Connect4() {
-  const rowSize = 3;
-  const columnSize = 4;
+  const rowSize = 6;
+  const columnSize = 7;
   const [gameData, setGameData] = useState(getIninitalGameData());
 
   function restartGame() {
