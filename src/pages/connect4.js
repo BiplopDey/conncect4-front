@@ -32,6 +32,7 @@ export default function Connect4() {
       })
       .catch((error) => {});
   }
+
   function getIninitalGameData() {
     return {
       table: getEmptyTable(),
@@ -41,8 +42,9 @@ export default function Connect4() {
   }
 
   function getEmptyTable() {
-    return [...Array(columnSize).keys()].map((_) => []);
+    return range(columnSize).map((_) => []);
   }
+
   function nextPlayer() {
     return gameData.currentPlayer === player1 ? player2 : player1;
   }
@@ -56,6 +58,10 @@ export default function Connect4() {
     };
   }
 
+  if (gameData.status !== "PLAYING") {
+    alert(gameData.status);
+  }
+
   return (
     <>
       <Menu onRestartGame={restartGame}></Menu>
@@ -67,8 +73,10 @@ export default function Connect4() {
   );
 }
 
+const range = (end) => [...Array(end).keys()];
+
 const mapColumnTableToRowTable = (columnTable, rowSize) =>
-  [...Array(rowSize).keys()]
+  [...range(rowSize)]
     .reverse()
     .map((rowIndex) => getRowOfColumnTable(columnTable, rowIndex));
 
