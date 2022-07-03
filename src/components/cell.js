@@ -6,14 +6,18 @@ import { cellState } from "./state";
 export default function Cell({ state, onClick }) {
   return (
     <div className="cell" onClick={onClick}>
-      {isEmpty(state) ? (
-        <></>
-      ) : (
-        <Token color={isPlayer1(state) ? "red" : "blue"}></Token>
-      )}
+      {getTokenIfNotEmpty(state)}
     </div>
   );
 }
 
+const getTokenIfNotEmpty = (state) =>
+  isEmpty(state) ? (
+    <></>
+  ) : (
+    <Token color={isPlayer1(state) ? "red" : "blue"}></Token>
+  );
+
 const isEmpty = (state) => state === cellState.empty;
+
 const isPlayer1 = (state) => state === cellState.player.player1;
